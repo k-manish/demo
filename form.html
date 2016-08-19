@@ -41,14 +41,14 @@
                     {
                         window.alert("fill your first name");
                     }
-                    if(!(mobile.test("[0-9]{10}")))
+                    if(!(/[0-9]{10}/.test(mobile)))
                     {
                         window.alert("please enter correct mobile number!!");
                     }
                     
                     
-                    document.getElementById("fdiv").style.display="block";
-                    document.getElementById("sdiv").style.display="none";
+                    document.getElementById("fdiv").style.display="none";
+                    document.getElementById("sdiv").style.display="block";
                     
                     document.getElementById("p1").innerHTML=fullname;
                     document.getElementById("p2").innerHTML=addinfo;
@@ -64,6 +64,12 @@
                             document.getElementById(lname).value=c10[2];
                         //} */
                 }
+                
+                function changebackground()
+                {
+                    document.getElementById("DemoReg").style.backgroundColor="red";
+                }
+                
                 </script>
               
             
@@ -78,7 +84,7 @@
                 <fieldset>
                 
                 <table class="name1" id="namedescp" style="width: 100%">
-                <tr class="name1"><td class="name1">First-Name: <input type="text" id="fname" placeholder="name" pattern="[A-Za-z]{3}"></td>
+                <tr class="name1"><td class="name1">First-Name: <input type="text" id="fname" placeholder="name" pattern="[A-Za-z]{..*}"></td>
                     <td class="name1">Middle-Name: <input type="text" id="mname"></td>
                     <td class="name1">LastName:<input type="text" id="lname"></td></tr>
                 </table>
@@ -117,7 +123,7 @@
                    
                 </table>
                  </fieldset>
-              <div style="text-align:center"><input type="submit" onclick="myfunction()"></div>
+              <div style="text-align:center"><input type="submit" onclick="myfunction()" onmouseover="changebackground()" onmouseout="changebackground1()"></div>
             </form>
          </div>
          <div id="sdiv" >
