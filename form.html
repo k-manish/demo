@@ -17,6 +17,12 @@
                 .name1{
                     border: none;
                 }
+                #sdiv{
+                    display:none;
+                }
+                #fdiv{
+                    display:block;
+                }
             </style>
             
             <script>
@@ -30,8 +36,33 @@
                     var mail=document.getElementById("mail").value;
                     var mobile = document.getElementById("num").value;
                     var fullname=fname+" "+mname+" "+lname;
-                    document.getElementById("p1").innerHTML=fullname;
                     
+                    if(fname===null || fname==="")
+                    {
+                        window.alert("fill your first name");
+                    }
+                    if(!(mobile.test("[0-9]{10}")))
+                    {
+                        window.alert("please enter correct mobile number!!");
+                    }
+                    
+                    
+                    document.getElementById("fdiv").style.display="block";
+                    document.getElementById("sdiv").style.display="none";
+                    
+                    document.getElementById("p1").innerHTML=fullname;
+                    document.getElementById("p2").innerHTML=addinfo;
+                    document.getElementById("p3").innerHTML=gender;
+                    document.getElementById("p4").innerHTML=mail;
+                    document.getElementById("p5").innerHTML=mobile;
+
+                   /* var c10=document.getElementById("education").row[0].cells;
+                       //for(var i=0;i<3;i++)
+                        //{
+                            document.getElementById(fname).value=c10[0];
+                            document.getElementById(mname).value=c10[1];
+                            document.getElementById(lname).value=c10[2];
+                        //} */
                 }
                 </script>
               
@@ -41,13 +72,13 @@
         <body>
             
             
-            
+         <div id="fdiv">   
             <h1 style="text-align:center;background:green"> REGISTRATION </h1>
-            <form autocomplete="on" id="DemoReg" >
+            <form autocomplete="off" id="DemoReg" >
                 <fieldset>
                 
                 <table class="name1" id="namedescp" style="width: 100%">
-                <tr class="name1"><td class="name1">First-Name: <input type="text" id="fname" placeholder="name"></td>
+                <tr class="name1"><td class="name1">First-Name: <input type="text" id="fname" placeholder="name" pattern="[A-Za-z]{3}"></td>
                     <td class="name1">Middle-Name: <input type="text" id="mname"></td>
                     <td class="name1">LastName:<input type="text" id="lname"></td></tr>
                 </table>
@@ -61,7 +92,7 @@
                 <p>Email: <input type="email" id="mail"></p>
                 <p>Contact_No.- <input type="text" id="num"></p>
                 <br>
-                <table class="er">
+                <table class="er" id="education">
                      <caption>Education Detail</caption>
                     <tr class="er">
                         <td class="er"> Class</td>
@@ -86,8 +117,17 @@
                    
                 </table>
                  </fieldset>
-              <div style="text-align: center"><input type="submit" onclick="myfunction()"></div>
+              <div style="text-align:center"><input type="submit" onclick="myfunction()"></div>
             </form>
-            <p id="p1"></p>
+         </div>
+         <div id="sdiv" >
+            <p>Your Given 
+            <p id="p1">output will be here</p>
+            <p id="p2">address will written</p>
+            <p id="p3"> gender</p>
+            <p id="p4">email id</p>
+            <p id="p5">mobile no</p>
+            <input type
+        </div>
         </body>
     </html>
